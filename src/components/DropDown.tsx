@@ -85,28 +85,19 @@ const DropdownItem = styled(motion.li)`
   }
 `;
 
-const Dropdown = ({ title, content, select }: DropDownProps) => {
+const Dropdown = <T extends Difficulty | QuizNum | QuizType>({
+  title,
+  content,
+  select,
+}: DropDownProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [text, setText] = useState<Difficulty | QuizNum | QuizType | string>(
-    title
-  );
+  const [text, setText] = useState<string>(title);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const selectOption = (value: Difficulty | QuizNum | QuizType): void => {
-    if (
-      typeof value === "string" &&
-      (value === "상" || value === "중" || value === "하")
-    ) {
-      setText(value);
-      select(value);
-    } else if (typeof value === "number") {
-      setText(value);
-      select(value);
-    } else {
-      setText(value);
-      select(value);
-    }
+  const selectOption = (value: T): void => {
+    setText(String(value));
+    select(value);
     setIsOpen(false);
   };
 

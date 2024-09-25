@@ -41,13 +41,10 @@ export interface ModalProps {
   card: CardProps;
   closeModal: () => void;
 }
-export interface DropDownProps {
+export interface DropDownProps<T> {
   title: string;
-  content: (Difficulty | QuizNum | QuizType)[];
-  select:
-    | ((value: Difficulty) => void)
-    | ((value: QuizNum) => void)
-    | ((value: QuizType) => void);
+  content: T[];
+  select: (value: T) => void;
 }
 export interface MultipleQuestion {
   question: string;

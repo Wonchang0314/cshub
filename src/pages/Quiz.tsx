@@ -100,7 +100,6 @@ const QuizPage = () => {
     navigate("result");
   };
 
-  console.log(userAnswer);
   return (
     <BackGround>
       <Box>
