@@ -8,7 +8,6 @@ import FillBlankQuizCard from "../components/fillBlank/QuizCard";
 import { motion } from "framer-motion";
 import { Quiz } from "../types/data";
 import { useNavigate } from "react-router-dom";
-import { useAnswerStore } from "../store/answer";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;
@@ -83,7 +82,6 @@ const QuizPage = () => {
   const xOffSet = window.innerWidth >= 700 ? (direction ? 100 : -100) : 0;
   const navigate = useNavigate();
 
-  const { userAnswer } = useAnswerStore();
   const nextQuestion = () => {
     if (currentNum < Number(quizNum)) {
       setDirection(true);
