@@ -1,15 +1,17 @@
 import { create } from "zustand";
-import { Quiz, QuizNum, QuizType } from "../types/data";
+import { Difficulty, Quiz, QuizNum, QuizType } from "../types/data";
 
 interface QuizState {
   isLoading: boolean;
   response: Quiz;
+  quizType: QuizType;
+  quizNum: QuizNum;
+  difficulty: Difficulty;
   setIsLoading: (loading: boolean) => void;
   setResponse: (response: Quiz) => void;
-  quizType: QuizType;
   setQuizType: (quizType: QuizType) => void;
-  quizNum: QuizNum;
   setQuizNum: (quizNum: QuizNum) => void;
+  setDifficulty: (difficulty: Difficulty) => void;
 }
 
 const defaultQuestion: Quiz = {
@@ -23,6 +25,7 @@ export const useQuizStore = create<QuizState>((set) => ({
   response: defaultQuestion,
   quizType: "객관식",
   quizNum: 5,
+  difficulty: "하",
   setIsLoading: (loading) => set({ isLoading: loading }),
   setResponse: (response) => {
     set({ response });
@@ -33,4 +36,5 @@ export const useQuizStore = create<QuizState>((set) => ({
     sessionStorage.setItem("quizType", JSON.stringify(quizType));
   },
   setQuizNum: (quizNum) => set({ quizNum }),
+  setDifficulty: (difficulty) => set({ difficulty }),
 }));

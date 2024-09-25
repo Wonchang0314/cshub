@@ -94,10 +94,22 @@ const Dropdown = ({ title, content, select }: DropDownProps) => {
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const selectOption = (value: Difficulty | QuizNum | QuizType): void => {
-    setText(value);
-    select(value);
+    if (
+      typeof value === "string" &&
+      (value === "상" || value === "중" || value === "하")
+    ) {
+      setText(value);
+      select(value);
+    } else if (typeof value === "number") {
+      setText(value);
+      select(value);
+    } else {
+      setText(value);
+      select(value);
+    }
     setIsOpen(false);
   };
+
   return (
     <DropdownContainer>
       <DropdownButton whileTap={{ scale: 0.97 }} onClick={toggleDropdown}>

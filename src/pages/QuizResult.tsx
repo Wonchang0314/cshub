@@ -103,6 +103,8 @@ const QuizResult = () => {
   const handleClick = () => {
     navigate("/selectTopic");
   };
+
+  console.log(corrected, quizNum, percentage);
   return (
     <BackGround>
       <Container>

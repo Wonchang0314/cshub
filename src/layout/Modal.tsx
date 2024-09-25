@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { ModalProps } from "../types/data";
 import styled from "styled-components";
-import { Difficulty } from "../types/data";
 import fetchQuiz from "../api/createQuiz";
 import { useNavigate } from "react-router-dom";
 import DropDown from "../components/DropDown";
@@ -54,11 +52,12 @@ const ButtonContainer = styled.footer`
 
 const Modal = ({ card, closeModal }: ModalProps) => {
   const navigate = useNavigate();
-  const [difficulty, setDifficulty] = useState<Difficulty>("하");
   const {
-    quizType,
-    setQuizType,
+    difficulty,
     quizNum,
+    quizType,
+    setDifficulty,
+    setQuizType,
     setQuizNum,
     setIsLoading,
     setResponse,
@@ -91,7 +90,7 @@ const Modal = ({ card, closeModal }: ModalProps) => {
             />
             <DropDown
               title="문제 갯수 선택"
-              content={["5", "10", "15"]}
+              content={[5, 10, 15]}
               select={setQuizNum}
             />
             <DropDown

@@ -44,7 +44,10 @@ export interface ModalProps {
 export interface DropDownProps {
   title: string;
   content: (Difficulty | QuizNum | QuizType)[];
-  select: (value: Difficulty | QuizNum | QuizType) => void;
+  select:
+    | ((value: Difficulty) => void)
+    | ((value: QuizNum) => void)
+    | ((value: QuizType) => void);
 }
 export interface MultipleQuestion {
   question: string;
