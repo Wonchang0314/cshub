@@ -16,24 +16,30 @@ const BackGround = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
+  box-sizing: border-box;
 
   @media (max-width: 700px) {
+    min-height: none;
     background-color: white;
+    height: auto;
   }
 `;
 const Box = styled.div`
   width: 60%;
-  flex-grow: 1;
   margin: auto;
   padding: 2rem 1rem;
   color: black;
   background-color: white;
   text-align: center;
 
+  @media (min-width: 700px) {
+    flex-grow: 1;
+  }
   @media (max-width: 700px) {
     width: 90%;
     margin: auto;
     padding: 1rem 0.5rem;
+    height: auto;
   }
 `;
 const QuizCount = styled.p`
