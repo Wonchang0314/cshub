@@ -67,7 +67,7 @@ const Check = styled.div<{ $isRight?: boolean }>`
 const QuizResult = () => {
   const quiz: Quiz = JSON.parse(sessionStorage.getItem("quizData")!);
   const quizType = sessionStorage.getItem("quizType")!;
-  const quizNum = Number(JSON.stringify(sessionStorage.getItem("quizNum")));
+  const quizNum = Number(sessionStorage.getItem("quizNum"));
   const { userAnswer } = useAnswerStore();
   const userAnswerList = Array.from(userAnswer);
   const navigate = useNavigate();

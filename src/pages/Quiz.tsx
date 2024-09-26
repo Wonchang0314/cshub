@@ -75,7 +75,7 @@ const Buttons = styled.div`
 const QuizPage = () => {
   const quiz: Quiz = JSON.parse(sessionStorage.getItem("quizData")!);
   const quizType = JSON.parse(sessionStorage.getItem("quizType")!);
-  const quizNum = Number(JSON.stringify(sessionStorage.getItem("quizNum")));
+  const quizNum = Number(sessionStorage.getItem("quizNum")!);
   const [currentNum, setCurrentNum] = useState(1);
   const [direction, setDirection] = useState(true);
   const xOffSet = window.innerWidth >= 700 ? (direction ? 100 : -100) : 0;
