@@ -134,6 +134,7 @@ const QuizResult = () => {
                 <AnswerCard
                   key={i}
                   question={quiz.MultipleQuestion[answer[0] - 1].question}
+                  commentary={quiz.MultipleQuestion[answer[0] - 1].commentary!}
                   userAnswer={answer}
                   answer={quiz.MultipleQuestion[answer[0] - 1].answer}
                   $isRight={
@@ -146,6 +147,7 @@ const QuizResult = () => {
                 <AnswerCard
                   key={i}
                   question={quiz.TrueOrFalse[answer[0] - 1].question}
+                  commentary={quiz.TrueOrFalse[answer[0] - 1].commentary!}
                   userAnswer={answer}
                   answer={quiz.TrueOrFalse[answer[0] - 1].answer}
                   $isRight={
@@ -157,6 +159,7 @@ const QuizResult = () => {
                 <AnswerCard
                   key={i}
                   question={quiz.FillBlank[answer[0] - 1].question}
+                  commentary={quiz.FillBlank[answer[0] - 1].commentary!}
                   userAnswer={answer}
                   answer={quiz.FillBlank[answer[0] - 1].answer}
                   $isRight={

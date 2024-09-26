@@ -50,15 +50,18 @@ export interface MultipleQuestion {
   question: string;
   options: string[];
   answer: string;
+  commentary?: string;
 }
 export interface TrueOrFalse {
   question: string;
   option: boolean;
   answer: boolean;
+  commentary?: string;
 }
 export interface FillBlank {
   question: string;
   answer: string[];
+  commentary?: string;
 }
 
 export type Difficulty = "상" | "중" | "하";
@@ -80,6 +83,7 @@ export interface Quiz {
 
 export interface QuizResult {
   question: string;
+  commentary: string;
   userAnswer: [number, string | boolean];
   answer: string[] | string | boolean;
   $isRight: boolean;

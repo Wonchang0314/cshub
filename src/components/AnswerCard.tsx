@@ -9,6 +9,7 @@ const Card = styled.div`
   border-radius: 20px;
   padding: 1rem 2rem;
   margin-bottom: 25px;
+  text-align: start;
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -16,7 +17,6 @@ const Card = styled.div`
 `;
 
 const Answer = styled.p<{ $isRight: boolean }>`
-  text-align: start;
   color: ${({ $isRight }) => ($isRight ? "#32de84" : "#ff4d4d")};
 `;
 const Check = styled.div<{ $isRight?: boolean }>`
@@ -36,16 +36,19 @@ const Check = styled.div<{ $isRight?: boolean }>`
     height: 30px;
   }
 `;
-const Question = styled.p`
-  text-align: start;
-`;
-const AnswerCard = ({ question, userAnswer, answer, $isRight }: QuizResult) => {
+const AnswerCard = ({
+  question,
+  commentary,
+  userAnswer,
+  answer,
+  $isRight,
+}: QuizResult) => {
   return (
     <Card>
       <div>
-        <Question>
+        <p>
           Q{userAnswer[0]}. {question}
-        </Question>
+        </p>
         <Answer $isRight={$isRight}>
           A{userAnswer[0]}.{" "}
           {$isRight ? (
@@ -69,6 +72,7 @@ const AnswerCard = ({ question, userAnswer, answer, $isRight }: QuizResult) => {
             ? "(" + answer.join(", ") + ")"
             : answer}
         </Answer>
+        <p>해설: {commentary}</p>
       </div>
       <Check $isRight={$isRight}>
         {$isRight ? (
