@@ -3,7 +3,6 @@ import { useAnswerStore } from "../store/answer";
 import RadialProgressBar from "../components/RadialProgressBar";
 import AnswerCard from "../components/AnswerCard";
 import Button from "../components/Button";
-import { useQuizStore } from "../store/quiz";
 import { useNavigate } from "react-router-dom";
 import { Quiz } from "../types/data";
 
@@ -67,8 +66,8 @@ const Check = styled.div<{ $isRight?: boolean }>`
 
 const QuizResult = () => {
   const quiz: Quiz = JSON.parse(sessionStorage.getItem("quizData")!);
-  const quizType = JSON.parse(sessionStorage.getItem("quizType")!);
-  const { quizNum } = useQuizStore();
+  const quizType = sessionStorage.getItem("quizType")!;
+  const quizNum = Number(JSON.stringify(sessionStorage.getItem("quizNum")));
   const { userAnswer } = useAnswerStore();
   const userAnswerList = Array.from(userAnswer);
   const navigate = useNavigate();
@@ -101,6 +100,9 @@ const QuizResult = () => {
   const percentage: number = Math.floor((corrected / quizNum) * 100);
 
   const handleClick = () => {
+    sessionStorage.removeItem("quizData");
+    sessionStorage.removeItem("quizType");
+    sessionStorage.removeItem("quizNum");
     navigate("/selectTopic");
   };
 

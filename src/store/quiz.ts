@@ -35,6 +35,9 @@ export const useQuizStore = create<QuizState>((set) => ({
     set({ quizType });
     sessionStorage.setItem("quizType", JSON.stringify(quizType));
   },
-  setQuizNum: (quizNum) => set({ quizNum }),
+  setQuizNum: (quizNum) => {
+    set({ quizNum });
+    sessionStorage.setItem("quizNum", JSON.stringify(quizNum));
+  },
   setDifficulty: (difficulty) => set({ difficulty }),
 }));

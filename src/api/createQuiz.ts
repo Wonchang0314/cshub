@@ -121,7 +121,6 @@ const fetchQuiz = async ({
     difficulty,
     promptInterface
   );
-  console.log(quizPrompt);
 
   const completion = await openai.chat.completions.create({
     messages: [

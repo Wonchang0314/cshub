@@ -26,13 +26,18 @@ const Inner = styled.div`
 `;
 
 const Header = () => {
+  const handleClick = () => {
+    sessionStorage.removeItem("quizData");
+    sessionStorage.removeItem("quizType");
+    sessionStorage.removeItem("quizNum");
+  };
   return (
     <HeaderContainer>
       <Inner>
         <div>
           <i className="fa-solid fa-laptop-code"></i> CS Hub
         </div>
-        <Link to="/">
+        <Link to="/" onClick={handleClick}>
           <i className="fa-solid fa-house"></i>
         </Link>
       </Inner>

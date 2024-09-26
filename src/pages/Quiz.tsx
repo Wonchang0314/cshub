@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useQuizStore } from "../store/quiz";
 import styled from "styled-components";
 import Button from "../components/Button";
 import MultipleQuizCard from "../components/multipleQuestion/QuizCard";
@@ -76,14 +75,14 @@ const Buttons = styled.div`
 const QuizPage = () => {
   const quiz: Quiz = JSON.parse(sessionStorage.getItem("quizData")!);
   const quizType = JSON.parse(sessionStorage.getItem("quizType")!);
-  const { quizNum } = useQuizStore();
+  const quizNum = Number(JSON.stringify(sessionStorage.getItem("quizNum")));
   const [currentNum, setCurrentNum] = useState(1);
   const [direction, setDirection] = useState(true);
   const xOffSet = window.innerWidth >= 700 ? (direction ? 100 : -100) : 0;
   const navigate = useNavigate();
 
   const nextQuestion = () => {
-    if (currentNum < Number(quizNum)) {
+    if (currentNum < quizNum) {
       setDirection(true);
       setCurrentNum((prev) => prev + 1);
     }
