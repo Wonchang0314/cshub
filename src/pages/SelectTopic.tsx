@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
 import TopicCard from "../components/TopicCard";
 import {
   CardProps,
