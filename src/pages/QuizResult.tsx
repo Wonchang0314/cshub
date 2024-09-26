@@ -4,7 +4,7 @@ import RadialProgressBar from "../components/RadialProgressBar";
 import AnswerCard from "../components/AnswerCard";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import { Quiz } from "../types/data";
+import { useQuizStore } from "../store/quiz";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;
@@ -65,9 +65,7 @@ const Check = styled.div<{ $isRight?: boolean }>`
 `;
 
 const QuizResult = () => {
-  const quiz: Quiz = JSON.parse(sessionStorage.getItem("quizData")!);
-  const quizType = sessionStorage.getItem("quizType")!;
-  const quizNum = Number(sessionStorage.getItem("quizNum"));
+  const { quiz, quizType, quizNum } = useQuizStore();
   const { userAnswer } = useAnswerStore();
   const userAnswerList = Array.from(userAnswer);
   const navigate = useNavigate();

@@ -1,12 +1,14 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
 import MultipleQuizCard from "../components/multipleQuestion/QuizCard";
 import TrueOrFalseQuizCard from "../components/trueOrFalse/QuizCard";
 import FillBlankQuizCard from "../components/fillBlank/QuizCard";
 import { motion } from "framer-motion";
-import { Quiz } from "../types/data";
 import { useNavigate } from "react-router-dom";
+import { useQuizStore } from "../store/quiz";
+import { useAnswerStore } from "../store/answer";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;
@@ -73,13 +75,16 @@ const Buttons = styled.div`
   gap: 20px;
 `;
 const QuizPage = () => {
-  const quiz: Quiz = JSON.parse(sessionStorage.getItem("quizData")!);
-  const quizType = JSON.parse(sessionStorage.getItem("quizType")!);
-  const quizNum = Number(sessionStorage.getItem("quizNum")!);
+  const { quiz, quizType, quizNum } = useQuizStore();
+  const { userAnswer, resetUserAnswers } = useAnswerStore();
   const [currentNum, setCurrentNum] = useState(1);
   const [direction, setDirection] = useState(true);
   const xOffSet = window.innerWidth >= 700 ? (direction ? 100 : -100) : 0;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    resetUserAnswers();
+  }, []);
 
   const nextQuestion = () => {
     if (currentNum < quizNum) {
@@ -157,6 +162,9 @@ const QuizPage = () => {
               currentNum === Number(quizNum) ? "#ff4d4d" : "#101010"
             }
             hoverColor={currentNum === Number(quizNum) ? "#e04444" : "#282828"}
+            isDisabled={
+              !userAnswer.has(currentNum) || userAnswer.get(currentNum) === ""
+            }
           />
         </Buttons>
       </Box>

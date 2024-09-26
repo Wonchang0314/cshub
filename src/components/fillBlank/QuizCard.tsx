@@ -44,20 +44,14 @@ const QuizCard = ({ questionId, question }: FillBlankProps) => {
   const { setUserAnswer } = useAnswerStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value.trim());
-  };
-  const submitAnswer = () => {
-    setUserAnswer(questionId, inputValue);
+    setInputValue(e.target.value);
+    setUserAnswer(questionId, inputValue.trim());
   };
 
   return (
     <Card>
       <Question>Q. {question}</Question>
-      <Input
-        value={inputValue}
-        onChange={handleChange}
-        onBlur={submitAnswer}
-      ></Input>
+      <Input value={inputValue} onChange={handleChange}></Input>
     </Card>
   );
 };

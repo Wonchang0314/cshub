@@ -60,7 +60,7 @@ const Modal = ({ card, closeModal }: ModalProps) => {
     setQuizType,
     setQuizNum,
     setIsLoading,
-    setResponse,
+    setQuiz,
   } = useQuizStore();
 
   const createQuiz = async () => {
@@ -68,7 +68,7 @@ const Modal = ({ card, closeModal }: ModalProps) => {
     navigate("/loading");
     try {
       const data = await fetchQuiz({ card, difficulty, quizNum, quizType });
-      setResponse(data);
+      setQuiz(data);
       navigate("/quiz");
     } catch (error) {
       console.error("Error fetching quiz data:", error);

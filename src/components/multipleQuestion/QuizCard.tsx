@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Option from "./Option";
 import { MultipleQuestion } from "../../types/data";
-import { useState } from "react";
 import { useAnswerStore } from "../../store/answer";
 
 const Card = styled.div`
@@ -27,11 +26,9 @@ interface MultipleQuizProps extends MultipleQuestion {
   questionId: number;
 }
 const QuizCard = ({ questionId, question, options }: MultipleQuizProps) => {
-  const [selectedOption, setSelectedOption] = useState<string>("");
-  const { setUserAnswer } = useAnswerStore();
+  const { userAnswer, setUserAnswer } = useAnswerStore();
 
   const handleOptionClick = (option: string) => {
-    setSelectedOption(option);
     setUserAnswer(questionId, option);
   };
 
@@ -43,7 +40,7 @@ const QuizCard = ({ questionId, question, options }: MultipleQuizProps) => {
           <Option
             key={idx}
             content={option}
-            isClicked={selectedOption === option}
+            isClicked={userAnswer.get(questionId) === option}
             onClick={() => handleOptionClick(option)}
           />
         ))}

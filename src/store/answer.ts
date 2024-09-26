@@ -3,6 +3,7 @@ import { create } from "zustand";
 interface AnswerState {
   userAnswer: Map<number, string | boolean>;
   setUserAnswer: (quizId: number, answer: string | boolean) => void;
+  resetUserAnswers: () => void;
 }
 
 export const useAnswerStore = create<AnswerState>((set) => ({
@@ -13,4 +14,8 @@ export const useAnswerStore = create<AnswerState>((set) => ({
       updatedAnswer.set(quizId, answer);
       return { userAnswer: updatedAnswer };
     }),
+  resetUserAnswers: () =>
+    set(() => ({
+      userAnswer: new Map<number, string | boolean>(),
+    })),
 }));
