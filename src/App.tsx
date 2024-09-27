@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import { createGlobalStyle, styled } from "styled-components";
-import Home from "@pages/Home";
-import Layout from "@layout/Layout";
-import SelectTopic from "@pages/SelectTopic";
-import Quiz from "@pages/Quiz";
-import Loading from "@pages/Loading";
-import QuizResult from "@pages/QuizResult";
+import Home from "./pages/Home";
+import Layout from "./layout/Layout";
+import SelectTopic from "./pages/SelectTopic";
+import Quiz from "./pages/Quiz";
+import Loading from "./pages/Loading";
+import QuizResult from "./pages/QuizResult";
 
 const GlobalStyles = createGlobalStyle`
 @font-face {

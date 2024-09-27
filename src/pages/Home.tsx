@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import Button from "@components/Button";
+import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import Option from "@components/multipleQuestion/Option";
-import GridBox from "@layout/GridBox";
-import FeatureCard from "@components/FeatureCard";
-import quizIcon from "@assets/quiz.svg";
-import noteIcon from "@assets/note.svg";
-import pdfIcon from "@assets/pdf.svg";
-import checkIcon from "@assets/check.svg";
-import recordIcon from "@assets/record.svg";
-import errorCorrectIcon from "@assets/errorCorrect.svg";
-import Footer from "@layout/Footer";
+import Option from "../components/multipleQuestion/Option";
+import GridBox from "../layout/GridBox";
+import FeatureCard from "../components/FeatureCard";
+import quizIcon from "../assets/quiz.svg";
+import noteIcon from "../assets/note.svg";
+import pdfIcon from "../assets/pdf.svg";
+import checkIcon from "../assets/check.svg";
+import recordIcon from "../assets/record.svg";
+import errorCorrectIcon from "../assets/errorCorrect.svg";
+import Footer from "../layout/Footer";
 
 const Header = styled.header`
   width: 95%;

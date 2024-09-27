@@ -2,9 +2,9 @@ import { ModalProps } from "../types/data";
 import styled from "styled-components";
 import fetchQuiz from "../api/createQuiz";
 import { useNavigate } from "react-router-dom";
-import DropDown from "@components/DropDown";
-import Button from "@components/Button";
-import { useQuizStore } from "@store/quiz";
+import DropDown from "../components/DropDown";
+import Button from "../components/Button";
+import { useQuizStore } from "../store/quiz";
 
 const Background = styled.div`
   position: fixed;

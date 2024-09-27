@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { TrueOrFalse } from "../../types/data";
 import { useState } from "react";
-import { useAnswerStore } from "@store/answer";
+import { useAnswerStore } from "../../store/answer";
 import { motion } from "framer-motion";
 
 const Card = styled.div`

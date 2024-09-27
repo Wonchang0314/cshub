@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { useAnswerStore } from "@store/answer";
-import RadialProgressBar from "@components/RadialProgressBar";
-import AnswerCard from "@components/AnswerCard";
-import Button from "@components/Button";
+import { useAnswerStore } from "../store/answer";
+import RadialProgressBar from "../components/RadialProgressBar";
+import AnswerCard from "../components/AnswerCard";
+import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import { useQuizStore } from "@store/quiz";
+import { useQuizStore } from "../store/quiz";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;

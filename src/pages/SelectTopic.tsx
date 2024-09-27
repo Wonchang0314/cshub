@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import TopicCard from "@components/TopicCard";
+import TopicCard from "../components/TopicCard";
 import {
   CardProps,
   htmlCSSCard,
@@ -13,8 +13,8 @@ import {
   securityCard,
   architectureCard,
 } from "../types/data";
-import GridBox from "@layout/GridBox";
-import Modal from "@layout/Modal";
+import GridBox from "../layout/GridBox";
+import Modal from "../layout/Modal";
 
 const Title = styled.h2`
   font-size: 2rem;
