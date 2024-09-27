@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
+    "target": "ES2015",
+    "esModuleInterop": true,
     "jsx": "react-jsx",
+    "module": "es2020",
     "baseUrl": "./src",
     "paths": {
       "@components/*": ["components/*"],
