@@ -4,6 +4,7 @@ import Footer from "./Footer";
 
 const Layout = () => {
   const location = useLocation();
+
   return (
     <>
       <Header />

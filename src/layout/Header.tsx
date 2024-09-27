@@ -24,6 +24,15 @@ const Inner = styled.div`
     width: 85%;
   }
 `;
+const UserMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  @media (min-width: 700px) {
+    gap: 40px;
+  }
+`;
 
 const Header = () => {
   const handleClick = () => {
@@ -37,9 +46,15 @@ const Header = () => {
         <div>
           <i className="fa-solid fa-laptop-code"></i> CS Hub
         </div>
-        <Link to="/" onClick={handleClick}>
-          <i className="fa-solid fa-house"></i>
-        </Link>
+        <UserMenu>
+          <Link to="/" onClick={handleClick}>
+            <i className="fa-solid fa-user" />
+          </Link>
+
+          <Link to="/" onClick={handleClick}>
+            <i className="fa-solid fa-house" />
+          </Link>
+        </UserMenu>
       </Inner>
     </HeaderContainer>
   );

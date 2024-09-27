@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Option from "./Option";
 import { MultipleQuestion } from "../../types/data";
-import { useAnswerStore } from "../../store/answer";
+import { useAnswerStore } from "@store/answer";
 
 const Card = styled.div`
   width: 80%;

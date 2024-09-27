@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { useAnswerStore } from "../store/answer";
-import RadialProgressBar from "../components/RadialProgressBar";
-import AnswerCard from "../components/AnswerCard";
-import Button from "../components/Button";
+import { useAnswerStore } from "@store/answer";
+import RadialProgressBar from "@components/RadialProgressBar";
+import AnswerCard from "@components/AnswerCard";
+import Button from "@components/Button";
 import { useNavigate } from "react-router-dom";
-import { useQuizStore } from "../store/quiz";
+import { useQuizStore } from "@store/quiz";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;
@@ -27,7 +27,7 @@ const Container = styled.div`
 
   @media (max-width: 700px) {
     width: 90%;
-    margin: auto;
+    margin-bottom: 40px;
     padding: 1rem 0.5rem;
   }
 `;

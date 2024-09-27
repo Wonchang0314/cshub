@@ -1,11 +1,20 @@
 import styled from "styled-components";
-import Intro from "../assets/Intro.png";
-import Button from "../components/Button";
+import Button from "@components/Button";
 import { useNavigate } from "react-router-dom";
+import Option from "@components/multipleQuestion/Option";
+import GridBox from "@layout/GridBox";
+import FeatureCard from "@components/FeatureCard";
+import quizIcon from "@assets/quiz.svg";
+import noteIcon from "@assets/note.svg";
+import pdfIcon from "@assets/pdf.svg";
+import checkIcon from "@assets/check.svg";
+import recordIcon from "@assets/record.svg";
+import errorCorrectIcon from "@assets/errorCorrect.svg";
+import Footer from "@layout/Footer";
 
 const Header = styled.header`
   width: 95%;
-  margin: 1rem auto;
+  margin: auto;
   background-color: #ff5733;
   padding: 1rem;
   text-align: center;
@@ -30,21 +39,15 @@ const Introduction = styled.div`
     width: 100%;
   }
 `;
-const ImgCon = styled.div`
+const Example = styled.div`
+  width: 90%;
+  margin: auto;
+  border-radius: 15px;
+  padding: 1rem 0 2rem 0;
+  background-color: whitesmoke;
+  color: black;
   margin-top: 3rem;
-  img {
-    width: 80%;
-    height: auto;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  @media (max-width: 600px) {
-    img {
-      width: 90%;
-    }
-  }
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 `;
 const Title = styled.h1`
   font-size: 4rem;
@@ -55,7 +58,7 @@ const Title = styled.h1`
     font-size: 40px;
   }
   @media (max-width: 700px) {
-    font-size: 24px;
+    font-size: 32px;
   }
 `;
 const SubTitle = styled.p`
@@ -68,8 +71,60 @@ const SubTitle = styled.p`
   }
   @media (max-width: 700px) {
     line-height: 24px;
-    font-size: 0.6rem;
+    font-size: 14px;
   }
+`;
+const QuestionCard = styled.div`
+  width: 85%;
+  margin: auto;
+  disply: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Question = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 25px;
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
+  @media (max-width: 370px) {
+    font-size: medium;
+  }
+`;
+const Options = styled.ul`
+  margin: 0;
+  padding: 2rem;
+  @media (max-width: 700px) {
+    padding: 0;
+  }
+`;
+const Feature = styled.section`
+  color: black;
+  text-align: center;
+  margin-top: 100px;
+`;
+const History = styled.section`
+  color: black;
+  text-align: center;
+  margin-top: 80px;
+`;
+
+const HistoryElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+  border-radius: 10px;
+  font-size: x-large;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+const Icon = styled.img`
+  width: 75px;
 `;
 const HomePage = () => {
   const navigate = useNavigate();
@@ -78,30 +133,90 @@ const HomePage = () => {
   };
 
   return (
-    <Header>
-      <Introduction>
-        <Title>
-          AI 퀴즈 생성 서비스 <br /> CS Hub{" "}
-          <i className="fa-solid fa-laptop-code" />
-        </Title>
-        <SubTitle>
-          개발자의 기본기는 탄탄한 CS지식에서 출발합니다
-          <br />
-          기초부터 고급 수준까지의 퀴즈를 통해 자신의 실력을 진단하세요. <br />
-          AI 기반의 맞춤형 퀴즈로 언제 어디서든 자신의 페이스대로 학습할 수
-          있습니다
-        </SubTitle>
-        <Button
-          text="시작하기"
-          fontSize="x-large"
-          fontWeight="bold"
-          onClick={handleClick}
-        />
-        <ImgCon>
-          <img src={Intro} alt="Introduction" />
-        </ImgCon>
-      </Introduction>
-    </Header>
+    <div style={{ backgroundColor: "whitesmoke" }}>
+      <Header>
+        <Introduction>
+          <Title>
+            AI 퀴즈 생성 서비스 <br /> CS Hub{" "}
+            <i className="fa-solid fa-laptop-code" />
+          </Title>
+          <SubTitle>
+            CS Hub는 선택한 주제를 기반으로 퀴즈를 생성하는 AI 기반
+            서비스입니다. 객관식, 참/거짓, 빈칸 채우기 문제 등을 선택할 수
+            있습니다. 기초부터 고급 수준까지의 퀴즈를 통해 자신의 실력을
+            진단하세요.
+          </SubTitle>
+          <Button
+            text="시작하기"
+            fontSize="x-large"
+            fontWeight="bold"
+            onClick={handleClick}
+          />
+          <Example>
+            <QuestionCard>
+              <Question>
+                Q. 신입 개발자에게 특히 중요한 것은 무엇일까요?{" "}
+              </Question>
+              <Options>
+                <Option content="탄탄한 CS 지식" isClicked={true} />
+                <Option content="최신 기술 스택 활용 경험" isClicked={false} />
+                <Option content="화려한 개발 장비" isClicked={false} />
+                <Option content="잔디(커밋) 수 늘리기" isClicked={false} />
+              </Options>
+            </QuestionCard>
+          </Example>
+        </Introduction>
+      </Header>
+      <main>
+        <History>
+          <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>기록</h2>
+          <GridBox>
+            <HistoryElement>
+              <Icon src={recordIcon} alt="quizIcon" />
+              <span>내가 푼 퀴즈 갯수</span>
+              <span>5개</span>
+            </HistoryElement>
+            <HistoryElement>
+              <Icon src={checkIcon} alt="quizIcon" />
+              <span>평균 정답률</span>
+              <span>70%</span>
+            </HistoryElement>
+            <HistoryElement>
+              <Icon src={errorCorrectIcon} alt="quizIcon" />
+              <Button
+                text="오답노트 조회"
+                width="100%"
+                fontSize="large"
+                fontWeight="bold"
+                backGroundColor="#ff4d4d"
+                hoverColor="#e04444"
+              />
+            </HistoryElement>
+          </GridBox>
+        </History>
+        <Feature>
+          <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>기능</h2>
+          <GridBox>
+            <FeatureCard
+              icon={quizIcon}
+              title="다양한 유형의 문제"
+              description="객관식, 참/거짓, 빈칸 채우기 등 다양한 유형의 문제 생성"
+            />
+            <FeatureCard
+              icon={noteIcon}
+              title="기록"
+              description="이전에 풀었던 문제를 추적, 오답노트 기능 제공"
+            />
+            <FeatureCard
+              icon={pdfIcon}
+              title="PDF로 내보내기"
+              description="문제 및 퀴즈를 PDF 파일로 저장할 수 있습니다"
+            />
+          </GridBox>
+        </Feature>
+      </main>
+      <Footer />
+    </div>
   );
 };
 

@@ -26,6 +26,7 @@ export interface CardProps {
 }
 export interface ButtonProps {
   text: string;
+  width?: string;
   fontSize?: string;
   fontWeight?: string;
   backGroundColor?: string;

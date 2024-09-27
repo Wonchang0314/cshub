@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Button from "../components/Button";
-import MultipleQuizCard from "../components/multipleQuestion/QuizCard";
-import TrueOrFalseQuizCard from "../components/trueOrFalse/QuizCard";
-import FillBlankQuizCard from "../components/fillBlank/QuizCard";
+import Button from "@components/Button";
+import MultipleQuizCard from "@components/multipleQuestion/QuizCard";
+import TrueOrFalseQuizCard from "@components/trueOrFalse/QuizCard";
+import FillBlankQuizCard from "@components/fillBlank/QuizCard";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useQuizStore } from "../store/quiz";
-import { useAnswerStore } from "../store/answer";
+import { useQuizStore } from "@store/quiz";
+import { useAnswerStore } from "@store/answer";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;

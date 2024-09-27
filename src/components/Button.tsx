@@ -27,13 +27,14 @@ const ButtonCom = styled(motion.button)<ButtonProps>`
   }
   @media (max-width: 700px) {
     font-size: medium;
-    width: 120px;
+    width: ${(props) => (props.width ? props.width : "120px")};
     font-size: large;
     padding: 0.8rem 1.2rem;
   }
 `;
 
 const Button = ({
+  width,
   text,
   fontSize,
   fontWeight,
@@ -53,6 +54,7 @@ const Button = ({
       backGroundColor={backGroundColor}
       hoverColor={hoverColor}
       disabled={isDisabled}
+      width={width}
     >
       {text}
     </ButtonCom>

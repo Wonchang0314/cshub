@@ -26,7 +26,7 @@ const OptionButton = styled(motion.button)<{ isClicked: boolean }>`
 interface OptionProps {
   content: string;
   isClicked: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Option = ({ content, isClicked, onClick }: OptionProps) => {
