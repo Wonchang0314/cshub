@@ -164,7 +164,7 @@ const QuizResult = () => {
     localStorage.setItem("solvedQuiz", String(updatedSolved));
     const correctRate = localStorage.getItem("correctRate");
     const updatedRate = correctRate
-      ? Math.floor((parseInt(correctRate) + updatedSolved) / updatedSolved)
+      ? Math.floor((parseInt(correctRate) + percentage) / updatedSolved)
       : percentage;
     localStorage.setItem("correctRate", String(updatedRate));
     navigate("/myPage");
@@ -236,11 +236,17 @@ const QuizResult = () => {
               ))}
         </main>
         <Buttons>
-          <Button text="홈으로" onClick={handleClick}></Button>
+          <Button
+            text="홈으로"
+            fontWeight="bold"
+            onClick={handleClick}
+          ></Button>
           <Button
             text="마이페이지"
             fontSize="medium"
             fontWeight="bold"
+            backGroundColor="#ff4d4d"
+            hoverColor="#e04444"
             onClick={moveToMyPage}
           />
         </Buttons>
