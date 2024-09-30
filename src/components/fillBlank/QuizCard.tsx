@@ -44,8 +44,9 @@ const QuizCard = ({ questionId, question }: FillBlankProps) => {
   const { setUserAnswer } = useAnswerStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    setUserAnswer(questionId, inputValue.trim());
+    const newValue = e.target.value;
+    setInputValue(newValue.trim());
+    setUserAnswer(questionId, newValue.trim());
   };
 
   return (

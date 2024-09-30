@@ -82,7 +82,7 @@ const QuizResult = () => {
   const incorrectAnswers: IncorrectAnswer[] = localStorage.getItem(
     "incorrectAnswers"
   )
-    ? JSON.parse(localStorage.getItem("incorrectAnswers"))
+    ? JSON.parse(localStorage.getItem("incorrectAnswers")!)
     : [];
 
   const calculateScore = (): number => {
@@ -93,7 +93,15 @@ const QuizResult = () => {
         quizType === "객관식"
           ? answer[1] === quiz.MultipleQuestion[answer[0] - 1].answer
           : quizType === "빈칸 채우기"
-          ? quiz.FillBlank[answer[0] - 1].answer.includes(answer[1] as string)
+          ? quiz.FillBlank[answer[0] - 1].answer.includes(
+              answer[1] as string
+            ) ||
+            quiz.FillBlank[answer[0] - 1].answer.includes(
+              (answer[1] as string).toUpperCase()
+            ) ||
+            quiz.FillBlank[answer[0] - 1].answer.includes(
+              (answer[1] as string).toLowerCase()
+            )
           : answer[1] === quiz.TrueOrFalse[answer[0] - 1].answer;
 
       if (isCorrect) {
@@ -121,7 +129,7 @@ const QuizResult = () => {
                 commentary: quiz.TrueOrFalse[answer[0] - 1].commentary!,
               };
 
-        incorrectAnswers.push(incorrectAnswer);
+        incorrectAnswers.unshift(incorrectAnswer);
       }
     });
     return correctAnswers;
@@ -140,9 +148,7 @@ const QuizResult = () => {
     localStorage.setItem("solvedQuiz", String(updatedSolved));
     const correctRate = localStorage.getItem("correctRate");
     const updatedRate = correctRate
-      ? Math.floor(
-          (parseInt(correctRate) + updatedSolved) / parseInt(solvedQuiz)
-        )
+      ? Math.floor((parseInt(correctRate) + percentage) / updatedSolved)
       : percentage;
     localStorage.setItem("correctRate", String(updatedRate));
     navigate("/selectTopic");
@@ -158,9 +164,7 @@ const QuizResult = () => {
     localStorage.setItem("solvedQuiz", String(updatedSolved));
     const correctRate = localStorage.getItem("correctRate");
     const updatedRate = correctRate
-      ? Math.floor(
-          (parseInt(correctRate) + updatedSolved) / parseInt(solvedQuiz)
-        )
+      ? Math.floor((parseInt(correctRate) + updatedSolved) / updatedSolved)
       : percentage;
     localStorage.setItem("correctRate", String(updatedRate));
     navigate("/myPage");

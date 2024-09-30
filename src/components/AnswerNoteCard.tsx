@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IncorrectAnswer } from "../types/data";
+import { motion } from "framer-motion";
 
 const Card = styled.div`
   color: black;
@@ -11,19 +12,30 @@ const Card = styled.div`
   padding: 1rem 2rem;
   margin-bottom: 25px;
   text-align: start;
-  cursor: pointer;
   @media (max-width: 700px) {
     flex-direction: column;
   }
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
 `;
-const DeleteButton = styled.button`
+const DeleteButton = styled(motion.button)`
   background-color: #ff4d4d;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px 15px;
   font-size: large;
   cursor: pointer;
+  &:hover {
+    background-color: #e04444;
+  }
+
+  @media (max-width: 700px) {
+    padding: 7px 12px;
+  }
 `;
 const Answer = styled.p`
   color: #32de84;
@@ -53,7 +65,13 @@ const AnswerNoteCard = ({
         </p>
         <p>해설: {commentary}</p>
       </div>
-      <DeleteButton onClick={onDelete}>삭제</DeleteButton>
+      <DeleteButton
+        className="no-print"
+        whileTap={{ scale: 0.97 }}
+        onClick={onDelete}
+      >
+        삭제
+      </DeleteButton>
     </Card>
   );
 };
