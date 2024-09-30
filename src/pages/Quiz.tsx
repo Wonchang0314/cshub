@@ -105,7 +105,9 @@ const QuizPage = () => {
     }
   };
   const handleSubmit = () => {
-    navigate("result");
+    if (userAnswer.size === quizNum) {
+      navigate("result");
+    }
   };
 
   return (

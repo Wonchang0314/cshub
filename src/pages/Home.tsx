@@ -18,7 +18,7 @@ const Header = styled.header`
   background-color: #ff5733;
   padding: 1rem;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 1rem
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   @media (max-width: 700px) {
     width: 85%;
@@ -128,8 +128,17 @@ const Icon = styled.img`
 `;
 const HomePage = () => {
   const navigate = useNavigate();
+  const solvedQuiz: number = localStorage.getItem("solvedQuiz")
+    ? parseInt(localStorage.getItem("solvedQuiz"))
+    : 0;
+  const correctRate: number = localStorage.getItem("correctRate")
+    ? parseInt(localStorage.getItem("correctRate"))
+    : 0;
   const handleClick = () => {
     navigate("/selectTopic");
+  };
+  const moveToMyPage = () => {
+    navigate("/myPage");
   };
 
   return (
@@ -174,12 +183,12 @@ const HomePage = () => {
             <HistoryElement>
               <Icon src={recordIcon} alt="quizIcon" />
               <span>내가 푼 퀴즈 갯수</span>
-              <span>5개</span>
+              <span>{solvedQuiz}개</span>
             </HistoryElement>
             <HistoryElement>
               <Icon src={checkIcon} alt="quizIcon" />
               <span>평균 정답률</span>
-              <span>70%</span>
+              <span>{correctRate}%</span>
             </HistoryElement>
             <HistoryElement>
               <Icon src={errorCorrectIcon} alt="quizIcon" />
@@ -190,6 +199,7 @@ const HomePage = () => {
                 fontWeight="bold"
                 backGroundColor="#ff4d4d"
                 hoverColor="#e04444"
+                onClick={moveToMyPage}
               />
             </HistoryElement>
           </GridBox>

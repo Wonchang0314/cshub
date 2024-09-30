@@ -5,6 +5,7 @@ import AnswerCard from "../components/AnswerCard";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { useQuizStore } from "../store/quiz";
+import { IncorrectAnswer } from "../types/data";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;
@@ -33,7 +34,6 @@ const Container = styled.div`
 `;
 const Title = styled.h3`
   font-size: 2rem;
-  margin-top: 70px;
   margin-bottom: 2rem;
   font-weight: 700;
   color: black;
@@ -63,32 +63,65 @@ const Check = styled.div<{ $isRight?: boolean }>`
   color: white;
   font-size: x-large;
 `;
+const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  @media (max-width: 700px) {
+    align-items: center;
+    gap: 20px;
+  }
+`;
 
 const QuizResult = () => {
   const { quiz, quizType, quizNum } = useQuizStore();
   const { userAnswer } = useAnswerStore();
   const userAnswerList = Array.from(userAnswer);
   const navigate = useNavigate();
+  const incorrectAnswers: IncorrectAnswer[] = localStorage.getItem(
+    "incorrectAnswers"
+  )
+    ? JSON.parse(localStorage.getItem("incorrectAnswers"))
+    : [];
 
   const calculateScore = (): number => {
     let correctAnswers = 0;
 
     userAnswerList.forEach((answer) => {
-      if (
-        quizType === "객관식" &&
-        answer[1] === quiz.MultipleQuestion[answer[0] - 1].answer
-      ) {
+      const isCorrect =
+        quizType === "객관식"
+          ? answer[1] === quiz.MultipleQuestion[answer[0] - 1].answer
+          : quizType === "빈칸 채우기"
+          ? quiz.FillBlank[answer[0] - 1].answer.includes(answer[1] as string)
+          : answer[1] === quiz.TrueOrFalse[answer[0] - 1].answer;
+
+      if (isCorrect) {
         correctAnswers += 1;
-      } else if (
-        quizType === "빈칸 채우기" &&
-        quiz.FillBlank[answer[0] - 1].answer.includes(answer[1] as string)
-      ) {
-        correctAnswers += 1;
-      } else if (
-        quizType === "참 또는 거짓" &&
-        answer[1] === quiz.TrueOrFalse[answer[0] - 1].answer
-      ) {
-        correctAnswers += 1;
+      } else {
+        const incorrectAnswer: IncorrectAnswer =
+          quizType === "객관식"
+            ? {
+                question: quiz.MultipleQuestion[answer[0] - 1].question,
+                correctAnswer: quiz.MultipleQuestion[answer[0] - 1].answer,
+                userAnswer: answer[1],
+                commentary: quiz.MultipleQuestion[answer[0] - 1].commentary!,
+              }
+            : quizType === "빈칸 채우기"
+            ? {
+                question: quiz.FillBlank[answer[0] - 1].question,
+                correctAnswer: quiz.FillBlank[answer[0] - 1].answer.join(", "),
+                userAnswer: answer[1],
+                commentary: quiz.FillBlank[answer[0] - 1].commentary!,
+              }
+            : {
+                question: quiz.TrueOrFalse[answer[0] - 1].question,
+                correctAnswer: quiz.TrueOrFalse[answer[0] - 1].answer,
+                userAnswer: answer[1],
+                commentary: quiz.TrueOrFalse[answer[0] - 1].commentary!,
+              };
+
+        incorrectAnswers.push(incorrectAnswer);
       }
     });
     return correctAnswers;
@@ -98,10 +131,39 @@ const QuizResult = () => {
   const percentage: number = Math.floor((corrected / quizNum) * 100);
 
   const handleClick = () => {
+    localStorage.setItem("incorrectAnswers", JSON.stringify(incorrectAnswers));
     sessionStorage.removeItem("quizData");
     sessionStorage.removeItem("quizType");
     sessionStorage.removeItem("quizNum");
+    const solvedQuiz = localStorage.getItem("solvedQuiz");
+    const updatedSolved = solvedQuiz ? parseInt(solvedQuiz) + 1 : 1;
+    localStorage.setItem("solvedQuiz", String(updatedSolved));
+    const correctRate = localStorage.getItem("correctRate");
+    const updatedRate = correctRate
+      ? Math.floor(
+          (parseInt(correctRate) + updatedSolved) / parseInt(solvedQuiz)
+        )
+      : percentage;
+    localStorage.setItem("correctRate", String(updatedRate));
     navigate("/selectTopic");
+  };
+
+  const moveToMyPage = () => {
+    localStorage.setItem("incorrectAnswers", JSON.stringify(incorrectAnswers));
+    sessionStorage.removeItem("quizData");
+    sessionStorage.removeItem("quizType");
+    sessionStorage.removeItem("quizNum");
+    const solvedQuiz = localStorage.getItem("solvedQuiz");
+    const updatedSolved = solvedQuiz ? parseInt(solvedQuiz) + 1 : 1;
+    localStorage.setItem("solvedQuiz", String(updatedSolved));
+    const correctRate = localStorage.getItem("correctRate");
+    const updatedRate = correctRate
+      ? Math.floor(
+          (parseInt(correctRate) + updatedSolved) / parseInt(solvedQuiz)
+        )
+      : percentage;
+    localStorage.setItem("correctRate", String(updatedRate));
+    navigate("/myPage");
   };
 
   return (
@@ -169,7 +231,15 @@ const QuizResult = () => {
                 />
               ))}
         </main>
-        <Button text="홈으로" onClick={handleClick} />
+        <Buttons>
+          <Button text="홈으로" onClick={handleClick}></Button>
+          <Button
+            text="마이페이지"
+            fontSize="medium"
+            fontWeight="bold"
+            onClick={moveToMyPage}
+          />
+        </Buttons>
       </Container>
     </BackGround>
   );

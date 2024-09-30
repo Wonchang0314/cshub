@@ -89,6 +89,13 @@ export interface QuizResult {
   answer: string[] | string | boolean;
   $isRight: boolean;
 }
+export interface IncorrectAnswer {
+  question: string;
+  correctAnswer: string | boolean;
+  userAnswer: string | boolean;
+  commentary: string;
+  onDelete?: () => void;
+}
 
 // 퀴즈 분류 데이터
 const htmlCSSCard: CardProps = {

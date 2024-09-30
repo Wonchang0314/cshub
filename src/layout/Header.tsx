@@ -47,7 +47,7 @@ const Header = () => {
           <i className="fa-solid fa-laptop-code"></i> CS Hub
         </div>
         <UserMenu>
-          <Link to="/" onClick={handleClick}>
+          <Link to="/myPage" onClick={handleClick}>
             <i className="fa-solid fa-user" />
           </Link>
 

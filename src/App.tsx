@@ -6,6 +6,7 @@ import SelectTopic from "./pages/SelectTopic";
 import Quiz from "./pages/Quiz";
 import Loading from "./pages/Loading";
 import QuizResult from "./pages/QuizResult";
+import MyPage from "./pages/MyPage";
 
 const GlobalStyles = createGlobalStyle`
 @font-face {
@@ -66,8 +67,9 @@ function App() {
               <Route path="/selectTopic" element={<SelectTopic />} />
               <Route path="/loading" element={<Loading />} />
               <Route path="/quiz" element={<Quiz />} />
-              <Route path="/quiz/result" element={<QuizResult />} />
+              <Route path="/myPage" element={<MyPage />} />
             </Route>
+            <Route path="/quiz/result" element={<QuizResult />} />
           </Routes>
         </MainContent>
       </AppContainer>

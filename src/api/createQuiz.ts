@@ -16,6 +16,8 @@ const openai = new OpenAI({
 const selectTopic = (card: CardProps): string => {
   if (card.topic === "프레임워크 및 라이브러리") {
     return "리액트, SSR과 CSR";
+  } else if (card.topic === "클라우드와 배포") {
+    return "AWS, Docker, CI/CD, Kubernetes, 서버리스 아키텍처, 인프라 자동화";
   } else return card.topic;
 };
 
@@ -101,9 +103,9 @@ const createQuizPrompt = (
 
     아래 기준에 맞는 ${quizNum}개의 ${topic} 관련 객관식 문제를 난이도로 한국어로 생성해 주세요:
     - **난이도 설정**: ${difficulty}
-      - 하: 컴퓨터 공학을 학습한 비전공자가 풀 수 있을 정도의 쉬운 문제.
-      - 중: 컴퓨터 공학 전공자가 관련 내용을 학습해야 풀 수 있는 문제.
-      - 상: 해당 주제에 대한 깊은 이해가 필요하고, 문제 해결을 위해 추가적인 학습이 필요한 문제.
+      - 하: 컴퓨터 공학을 처음 학습한 전공자가 풀 수 있을 정도의 쉬운 문제.
+      - 중: 컴퓨터 공학 전공자가 관련 내용을 깊이 학습해야 풀 수 있는 문제.
+      - 상: 이전 난이도에 비해 상대적으로 해당 주제에 대한 더 깊은 이해가 필요하고, 문제 해결을 위해 추가적인 학습이 필요한 문제.
   `;
 };
 const fetchQuiz = async ({
@@ -127,7 +129,7 @@ const fetchQuiz = async ({
       {
         role: "system",
         content:
-          "You are a extremely accurate and diligent quiz generator specializing in high-quality computer science quizzes. Your only role is to create precise, well-structured quizzes based on the user's provided topics and difficulty levels.",
+          "You are a extremely accurate and diligent quiz generator specializing in high-quality computer science quizzes. Your only role is to create precise, well-structured quizzes based on the user's provided topics and difficulty levels. Always output clean JSON data.",
       },
       {
         role: "user",
