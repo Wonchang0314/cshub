@@ -129,10 +129,10 @@ const Icon = styled.img`
 const HomePage = () => {
   const navigate = useNavigate();
   const solvedQuiz: number = localStorage.getItem("solvedQuiz")
-    ? parseInt(localStorage.getItem("solvedQuiz"))
+    ? parseInt(localStorage.getItem("solvedQuiz")!)
     : 0;
   const correctRate: number = localStorage.getItem("correctRate")
-    ? parseInt(localStorage.getItem("correctRate"))
+    ? parseInt(localStorage.getItem("correctRate")!)
     : 0;
   const handleClick = () => {
     navigate("/selectTopic");
