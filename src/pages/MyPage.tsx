@@ -84,15 +84,19 @@ const MyPage = () => {
             />
           ))
         ) : (
-          <p>오답 기록이 없습니다.</p>
+          <p>기록이 없습니다.</p>
         )}
       </main>
-      <Button
-        text="PDF로 내보내기"
-        fontWeight="bold"
-        width="180px"
-        onClick={handleExportPDF}
-      />
+      {incorrectAnswers.length > 0 ? (
+        <Button
+          text="PDF로 내보내기"
+          fontWeight="bold"
+          width="180px"
+          onClick={handleExportPDF}
+        />
+      ) : (
+        ""
+      )}
     </AnswerNote>
   );
 };
