@@ -14,11 +14,11 @@ https://cs-hub-murex.vercel.app/
 2. 원하는 주제를 선택합니다 (현재 네트워크, 운영체제, 자료구조, 클라우드와 배포, 보안, 소프트웨어 아키텍처, HTML/CSS, Javascript 관련 퀴즈 제공)
 3. 문제를 풀고 결과를 확인합니다
 4. 틀린 문제는 오답노트에 저장이 되고, 이를 pdf로 내보내기할수도 있습니다
-   
+
 
 ## 퀴즈 주제 정하기
 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-   <img width="65%" alt="스크린샷 2024-09-30 오전 10 05 23" src="https://github.com/user-attachments/assets/0dade3d8-e964-48c8-80a0-489f92443def">
+   <img width="65%" alt="스크린샷 2024-10-04 오후 12 57 04" src="https://github.com/user-attachments/assets/b6cc028c-86fa-4497-981b-694b2fd3524c">
    <img width="25%" alt="스크린샷 2024-10-04 오후 12 29 29" src="https://github.com/user-attachments/assets/1e3b7928-bde8-4104-903f-7137a8ab1bad">
 </div>
 
