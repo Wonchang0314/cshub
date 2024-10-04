@@ -34,7 +34,7 @@ https://cs-hub-murex.vercel.app/
    <img width="25%" alt="스크린샷 2024-10-04 오후 12 29 29" src="https://github.com/user-attachments/assets/1e3b7928-bde8-4104-903f-7137a8ab1bad">
 </div>
 
-## 오답노트 
+## 오답노트
 <div style="display: flex; justify-content: space-between;">
    <img width="65%" alt="스크린샷 2024-10-04 오후 12 55 48" src="https://github.com/user-attachments/assets/9b07162e-b505-4385-b2c3-16672d24e00c">
    <img width="25%" alt="스크린샷 2024-10-04 오후 12 25 16" src="https://github.com/user-attachments/assets/0d570653-6766-4cf8-8807-c7a21c5c385b">
