@@ -27,6 +27,6 @@ https://cs-hub-murex.vercel.app/
 
 ## 오답노트 
 <div style="display: flex; justify-content: space-between;">
-   <img alt="스크린샷 2024-10-04 오후 12 25 16" src="https://github.com/user-attachments/assets/0d570653-6766-4cf8-8807-c7a21c5c385b">
-   <img alt="스크린샷 2024-10-04 오후 12 25 16" src="https://github.com/user-attachments/assets/0d570653-6766-4cf8-8807-c7a21c5c385b">
+   <img width="40%" alt="스크린샷 2024-10-04 오후 12 25 16" src="https://github.com/user-attachments/assets/0d570653-6766-4cf8-8807-c7a21c5c385b">
+   <img width="40%" alt="스크린샷 2024-10-04 오후 12 25 16" src="https://github.com/user-attachments/assets/0d570653-6766-4cf8-8807-c7a21c5c385b">
 </div>
