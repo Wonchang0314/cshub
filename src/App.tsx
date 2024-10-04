@@ -9,7 +9,7 @@ import QuizResult from "./pages/QuizResult";
 import MyPage from "./pages/MyPage";
 
 const GlobalStyles = createGlobalStyle`
-@font-face {
+  @font-face {
     font-family: 'Paperlogy-8ExtraBold';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
     font-weight: 800;

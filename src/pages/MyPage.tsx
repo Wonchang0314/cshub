@@ -1,5 +1,13 @@
 import { IncorrectAnswer } from "../types/data";
-import styled from "styled-components";
+import {
+  AnswerNote,
+  Title,
+  History,
+  HistoryElement,
+  Icon,
+} from "./styles/MyPage.style";
+import recordIcon from "../assets/record.svg";
+import checkIcon from "../assets/check.svg";
 import AnswerNoteCard from "../components/AnswerNoteCard";
 import { useState } from "react";
 import Button from "../components/Button";
@@ -7,31 +15,13 @@ import Button from "../components/Button";
 // @ts-expect-error
 import html2pdf from "html2pdf.js";
 
-const AnswerNote = styled.section`
-  width: 60%;
-  margin: auto;
-  padding: 2rem 1rem;
-  color: black;
-  background-color: white;
-  text-align: center;
-
-  @media (max-width: 1280px) {
-    width: 90%;
-    margin-bottom: 40px;
-    padding: 1rem 0.5rem;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 2rem;
-  margin-top: 90px;
-  margin-bottom: 2rem;
-  font-weight: 700;
-  color: black;
-  text-align: center;
-`;
-
 const MyPage = () => {
+  const solvedQuiz: number = localStorage.getItem("solvedQuiz")
+    ? parseInt(localStorage.getItem("solvedQuiz")!)
+    : 0;
+  const correctRate: number = localStorage.getItem("correctRate")
+    ? parseInt(localStorage.getItem("correctRate")!)
+    : 0;
   const [incorrectAnswers, setIncorrectAnswers] = useState<IncorrectAnswer[]>(
     localStorage.getItem("incorrectAnswers")
       ? JSON.parse(localStorage.getItem("incorrectAnswers")!)
@@ -71,6 +61,18 @@ const MyPage = () => {
   return (
     <AnswerNote>
       <Title>오답노트</Title>
+      <History>
+        <HistoryElement>
+          <Icon src={recordIcon} alt="quizIcon" />
+          <span>내가 푼 퀴즈 갯수</span>
+          <span>{solvedQuiz}개</span>
+        </HistoryElement>
+        <HistoryElement>
+          <Icon src={checkIcon} alt="quizIcon" />
+          <span>평균 정답률</span>
+          <span>{correctRate}%</span>
+        </HistoryElement>
+      </History>
       <main id="answer-note-content">
         {incorrectAnswers.length > 0 ? (
           incorrectAnswers.map((quiz, i) => (
