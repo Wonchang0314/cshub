@@ -18,7 +18,7 @@ https://cs-hub-murex.vercel.app/
 
 ## 퀴즈 주제 정하기
 <div style="display: flex; justify-content: space-between;">
-   <img alt="스크린샷 2024-09-30 오전 10 05 23" src="https://github.com/user-attachments/assets/0dade3d8-e964-48c8-80a0-489f92443def">
+   <img width="60%" alt="스크린샷 2024-09-30 오전 10 05 23" src="https://github.com/user-attachments/assets/0dade3d8-e964-48c8-80a0-489f92443def">
    <img width="30%" alt="스크린샷 2024-10-04 오후 12 29 29" src="https://github.com/user-attachments/assets/1e3b7928-bde8-4104-903f-7137a8ab1bad">
 </div>
 
