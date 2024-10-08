@@ -7,6 +7,7 @@ const AnswerNote = styled.section`
   color: black;
   background-color: white;
   text-align: center;
+  min-height: 100vh;
 
   @media (max-width: 1280px) {
     width: 90%;
@@ -51,5 +52,9 @@ const HistoryElement = styled.div`
 const Icon = styled.img`
   width: 40px;
 `;
+const NoRecord = styled.p`
+  margin-top: 100px;
+  font-size: 24px;
+`;
 
-export { AnswerNote, Title, History, HistoryElement, Icon };
+export { AnswerNote, Title, History, HistoryElement, Icon, NoRecord };

@@ -5,6 +5,7 @@ import {
   History,
   HistoryElement,
   Icon,
+  NoRecord,
 } from "./styles/MyPage.style";
 import solvedIcon from "../assets/solvedIcon.svg";
 import checkIcon from "../assets/checkIcon.svg";
@@ -86,7 +87,7 @@ const MyPage = () => {
             />
           ))
         ) : (
-          <p>기록이 없습니다.</p>
+          <NoRecord>기록이 없습니다.</NoRecord>
         )}
       </main>
       {incorrectAnswers.length > 0 ? (
