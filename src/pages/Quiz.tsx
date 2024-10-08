@@ -93,6 +93,8 @@ const QuizPage = () => {
             text="이전"
             fontSize="large"
             fontWeight="bold"
+            backGroundColor="#6f2dbd"
+            hoverColor="#5a21a6"
             onClick={prevQuestion}
             isDisabled={currentNum === 1}
           />
@@ -103,10 +105,8 @@ const QuizPage = () => {
             onClick={
               currentNum === Number(quizNum) ? handleSubmit : nextQuestion
             }
-            backGroundColor={
-              currentNum === Number(quizNum) ? "#ff4d4d" : "#101010"
-            }
-            hoverColor={currentNum === Number(quizNum) ? "#e04444" : "#282828"}
+            backGroundColor="#6f2dbd"
+            hoverColor="#5a21a6"
             isDisabled={
               !userAnswer.has(currentNum) || userAnswer.get(currentNum) === ""
             }

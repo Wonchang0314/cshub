@@ -50,7 +50,7 @@ const AppContainer = styled.div`
 `;
 
 const MainContent = styled.main`
-  @media (min-width: 700px) {
+  background-color: #f6f9ff @media (min-width: 700px) {
     flex: 1;
   }
 `;
@@ -62,8 +62,8 @@ function App() {
       <AppContainer>
         <MainContent>
           <Routes>
-            <Route path="/" element={<Home />} />
             <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
               <Route path="/selectTopic" element={<SelectTopic />} />
               <Route path="/loading" element={<Loading />} />
               <Route path="/quiz" element={<Quiz />} />

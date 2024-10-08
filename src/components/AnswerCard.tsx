@@ -5,8 +5,9 @@ const Card = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ff4d4d;
   border-radius: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
   margin-bottom: 25px;
   text-align: start;
@@ -17,7 +18,7 @@ const Card = styled.div`
 `;
 
 const Answer = styled.p<{ $isRight: boolean }>`
-  color: ${({ $isRight }) => ($isRight ? "#32de84" : "#ff4d4d")};
+  color: ${({ $isRight }) => ($isRight ? "#a4c639" : "red")};
 `;
 const Check = styled.div<{ $isRight?: boolean }>`
   width: 40px;
@@ -26,7 +27,7 @@ const Check = styled.div<{ $isRight?: boolean }>`
   justify-content: center;
   align-items: center;
   background-color: ${({ $isRight = true }) =>
-    $isRight ? "#32de84" : "#F44636"};
+    $isRight ? "#A4C639" : "#F44636"};
   border-radius: 50%;
   color: white;
   flex-shrink: 0;

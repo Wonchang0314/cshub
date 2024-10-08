@@ -104,16 +104,16 @@ const Modal = ({ card, closeModal }: ModalProps) => {
           <Button
             text="닫기"
             fontSize="large"
-            backGroundColor="#ff4d4d"
-            hoverColor="#e04444"
+            backGroundColor="#6f2dbd"
+            hoverColor="#5a21a6"
             onClick={closeModal}
           />
           <Button
             text="퀴즈 시작"
             fontSize="large"
             fontWeight="bold"
-            backGroundColor="#ff4d4d"
-            hoverColor="#e04444"
+            backGroundColor="#6f2dbd"
+            hoverColor="#5a21a6"
             onClick={createQuiz}
           />
         </ButtonContainer>

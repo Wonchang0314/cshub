@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import logoImage from "../assets/logoImage.svg";
 
 const HeaderContainer = styled.header`
-  background-color: #ff4d4d;
+  background-color: white;
   padding: 1rem 0;
   color: white;
   font-size: 1.5rem;
@@ -12,7 +13,38 @@ const HeaderContainer = styled.header`
   left: 0;
   width: 100%;
   z-index: 999;
+  border-bottom: 2px solid #eaeaea;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+
+    @media (max-width: 700px) {
+      width: 40px;
+    }
+  }
+
+  span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+
+    @media (max-width: 700px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  span strong {
+    color: #ffcc00;
+  }
+`;
+
 const Inner = styled.div`
   width: 92%;
   margin: auto;
@@ -28,12 +60,22 @@ const UserMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  @media (min-width: 700px) {
-    gap: 40px;
+  gap: 30px;
+
+  a {
+    i {
+      font-size: 1.5rem;
+    }
+
+    &:first-child i {
+      color: #5305c7;
+    }
+
+    &:nth-child(2) i {
+      color: #ffcd05;
+    }
   }
 `;
-
 const Header = () => {
   const handleClick = () => {
     sessionStorage.removeItem("quizData");
@@ -43,9 +85,12 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Inner>
-        <div>
-          <i className="fa-solid fa-laptop-code"></i> CS Hub
-        </div>
+        <Logo>
+          <img src={logoImage} alt="CSQuizHub 로고" />
+          <span>
+            <strong>CS</strong>QuizHub
+          </span>
+        </Logo>
         <UserMenu>
           <Link to="/myPage" onClick={handleClick}>
             <i className="fa-solid fa-user" />

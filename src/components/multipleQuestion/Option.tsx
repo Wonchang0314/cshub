@@ -8,7 +8,7 @@ const OptionButton = styled(motion.button)<{ isClicked: boolean }>`
   font-weight: 600;
   color: black;
   padding: 1.3rem 1.5rem;
-  border: 2px solid ${({ isClicked }) => (isClicked ? "#ff4d4d" : "#f5f5f5")};
+  border: 2px solid ${({ isClicked }) => (isClicked ? "#6f2dbd" : "#f5f5f5")};
   background-color: ${({ isClicked }) => (isClicked ? "#f5f5f5" : "white")};
   border-radius: 10px;
   cursor: pointer;
@@ -20,7 +20,7 @@ const OptionButton = styled(motion.button)<{ isClicked: boolean }>`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   &:hover {
     background-color: #f5f5f5;
-    border: 2px solid #ff4d4d;
+    border: 2px solid #6f2dbd;
   }
 `;
 interface OptionProps {

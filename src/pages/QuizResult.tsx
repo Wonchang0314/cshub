@@ -180,14 +180,16 @@ const QuizResult = () => {
           <Button
             text="메인으로"
             fontWeight="bold"
+            backGroundColor="#6f2dbd"
+            hoverColor="#5a21a6"
             onClick={handleClick}
           ></Button>
           <Button
             text="마이페이지"
             fontSize="medium"
             fontWeight="bold"
-            backGroundColor="#ff4d4d"
-            hoverColor="#e04444"
+            backGroundColor="#6f2dbd"
+            hoverColor="#5a21a6"
             onClick={moveToMyPage}
           />
         </Buttons>

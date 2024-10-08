@@ -1,24 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import {
-  Header,
   Introduction,
-  Example,
   Title,
   SubTitle,
-  QuestionCard,
-  Question,
-  Options,
-  Feature,
+  ButtonContainer,
+  Instruction,
 } from "./styles/Home.style";
 import Button from "../components/Button";
-import Option from "../components/multipleQuestion/Option";
 import GridBox from "../layout/GridBox";
 import FeatureCard from "../components/FeatureCard";
-import quizIcon from "../assets/quiz.svg";
-import noteIcon from "../assets/note.svg";
-import pdfIcon from "../assets/pdf.svg";
-import Footer from "../layout/Footer";
-
+import cursorIcon from "../assets/cursorIcon.svg";
+import podiumIcon from "../assets/podiumIcon.svg";
+import target3D from "../assets/target3D.svg";
+import styled from "styled-components";
+const Main = styled.div`
+  margin-top: 80px;
+`;
+const HowToPlay = styled.h2`
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: black;
+`;
 const HomePage = () => {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -26,64 +29,50 @@ const HomePage = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "whitesmoke" }}>
-      <Header>
-        <Introduction>
-          <Title>
-            AI 퀴즈 생성 서비스 <br /> CS Hub{" "}
-            <i className="fa-solid fa-laptop-code" />
-          </Title>
-          <SubTitle>
-            CS Hub는 선택한 주제를 기반으로 퀴즈를 생성하는 AI 기반
-            서비스입니다. 객관식, 참/거짓, 빈칸 채우기 문제 등을 선택할 수
-            있습니다. 기초부터 고급 수준까지의 퀴즈를 통해 자신의 실력을
-            진단하세요.
-          </SubTitle>
+    <Main>
+      <Introduction>
+        <Title>
+          LEVEL UP <span>YOUR CS SKILLS</span> <br />
+          WITH QUIZZES
+        </Title>
+        <SubTitle>
+          CSQuizHub에서 재미있는 퀴즈를 통해 CS 지식을 쉽게 배우고 즐겨보세요!
+          직접 정한 난이도와 문제 유형으로 문제를 풀며 CS 개념을 자연스럽게
+          익히고, 새로운 스킬을 쌓아보세요.
+        </SubTitle>
+        <ButtonContainer>
           <Button
-            text="시작하기"
-            fontSize="x-large"
-            fontWeight="bold"
             onClick={handleClick}
+            width="200px"
+            fontSize="large"
+            fontWeight="bold"
+            text="퀴즈 주제 선택"
+            backGroundColor="#6f2dbd"
+            hoverColor="#5a21a6"
           />
-          <Example>
-            <QuestionCard>
-              <Question>
-                Q. 신입 개발자에게 특히 중요한 것은 무엇일까요?{" "}
-              </Question>
-              <Options>
-                <Option content="탄탄한 CS 지식" isClicked={true} />
-                <Option content="최신 기술 스택 활용 경험" isClicked={false} />
-                <Option content="화려한 개발 장비" isClicked={false} />
-                <Option content="잔디(커밋) 수 늘리기" isClicked={false} />
-              </Options>
-            </QuestionCard>
-          </Example>
-        </Introduction>
-      </Header>
-      <main>
-        <Feature>
-          <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>기능</h2>
-          <GridBox>
-            <FeatureCard
-              icon={quizIcon}
-              title="다양한 유형의 문제"
-              description="객관식, 참/거짓, 빈칸 채우기 등 다양한 유형의 문제 생성"
-            />
-            <FeatureCard
-              icon={noteIcon}
-              title="기록"
-              description="이전에 풀었던 문제를 추적, 오답노트 기능 제공"
-            />
-            <FeatureCard
-              icon={pdfIcon}
-              title="PDF로 내보내기"
-              description="문제 및 퀴즈를 PDF 파일로 저장할 수 있습니다"
-            />
-          </GridBox>
-        </Feature>
-      </main>
-      <Footer />
-    </div>
+        </ButtonContainer>
+      </Introduction>
+      <Instruction>
+        <HowToPlay>플레이 방법</HowToPlay>
+        <GridBox>
+          <FeatureCard
+            icon={cursorIcon}
+            title="퀴즈 주제 선택"
+            description="CS 지식에 관한 다양한 주제가 있어요"
+          />
+          <FeatureCard
+            icon={podiumIcon}
+            title="난이도 및 옵션 선택"
+            description="난이도와 문제 유형을 선택하세요"
+          />
+          <FeatureCard
+            icon={target3D}
+            title="퀴즈 학습하기"
+            description="퀴즈를 풀며 CS 스킬을 향상시키세요"
+          />
+        </GridBox>
+      </Instruction>
+    </Main>
   );
 };
 

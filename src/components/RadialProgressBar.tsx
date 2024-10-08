@@ -25,7 +25,7 @@ const RadialProgressBar = ({ percentage }: { percentage: number }) => {
   return (
     <Bar>
       <Circle cx="50" cy="50" r={40} stroke="lightgray" />
-      <Circle cx="50" cy="50" r={40} stroke="#ff4d4d" $percent={percentage} />
+      <Circle cx="50" cy="50" r={40} stroke="#6f2dbd" $percent={percentage} />
       <Text x="50%" y="50%" textAnchor="middle" dy=".3em">
         {percentage}%
       </Text>

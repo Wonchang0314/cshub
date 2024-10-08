@@ -3,16 +3,15 @@ import { TopicCardProps } from "../types/data";
 import { motion } from "framer-motion";
 
 const Card = styled(motion.div)`
-  background-color: #f5f5f5;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: left;
-  color: black;
   padding: 1rem;
   cursor: pointer;
   &:hover {
-    border: 2px solid #ff4d4d;
+    border: 2px solid lightgray;
     margin: -2px;
   }
 `;
@@ -33,14 +32,14 @@ const CardTitle = styled.h3`
 `;
 
 const CardDescription = styled.p`
-  color: gray;
+  color: #717788;
   font-size: 1rem;
 `;
 
 const TopicCard = ({ card, openModal }: TopicCardProps) => {
   return (
     <Card
-      whileHover={{ scale: 1.04 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.97 }}
       onClick={() => openModal(card)}
     >

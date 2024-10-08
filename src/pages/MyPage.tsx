@@ -6,8 +6,8 @@ import {
   HistoryElement,
   Icon,
 } from "./styles/MyPage.style";
-import recordIcon from "../assets/record.svg";
-import checkIcon from "../assets/check.svg";
+import solvedIcon from "../assets/solvedIcon.svg";
+import checkIcon from "../assets/checkIcon.svg";
 import AnswerNoteCard from "../components/AnswerNoteCard";
 import { useState } from "react";
 import Button from "../components/Button";
@@ -63,7 +63,7 @@ const MyPage = () => {
       <Title>오답노트</Title>
       <History>
         <HistoryElement>
-          <Icon src={recordIcon} alt="quizIcon" />
+          <Icon src={solvedIcon} alt="quizIcon" />
           <span>내가 푼 퀴즈 갯수</span>
           <span>{solvedQuiz}개</span>
         </HistoryElement>
@@ -94,6 +94,8 @@ const MyPage = () => {
           text="PDF로 내보내기"
           fontWeight="bold"
           width="180px"
+          backGroundColor="#6f2dbd"
+          hoverColor="#5a21a6"
           onClick={handleExportPDF}
         />
       ) : (

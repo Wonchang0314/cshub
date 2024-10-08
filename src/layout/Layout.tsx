@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ backgroundColor: "#f6f9ff" }}>
         <Outlet /> {/* Route에 해당하는 페이지가 렌더링 되는 부분 */}
       </main>
       {location.pathname !== "/loading" && <Footer />}

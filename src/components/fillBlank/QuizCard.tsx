@@ -30,7 +30,7 @@ const Input = styled.input`
   overflow-x: scroll;
 
   &:focus {
-    outline-color: #ff4d4d;
+    outline-color: #6f2dbd;
   }
   @media (max-width: 700px) {
     font-size: large;

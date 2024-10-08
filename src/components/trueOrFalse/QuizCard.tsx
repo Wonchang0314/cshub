@@ -38,12 +38,12 @@ const Option = styled(motion.button)<{ isClicked: boolean }>`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  color: ${({ isClicked }) => (isClicked ? "#ff4d4d" : "lightgray")};
-  border: 2px solid ${({ isClicked }) => (isClicked ? "#ff4d4d" : "lightgray")};
+  color: ${({ isClicked }) => (isClicked ? "#6f2dbd" : "lightgray")};
+  border: 2px solid ${({ isClicked }) => (isClicked ? "#6f2dbd" : "lightgray")};
 
   &:hover {
-    border: 2px solid #ff4d4d;
-    color: #ff4d4d;
+    border: 2px solid #6f2dbd;
+    color: #6f2dbd;
     margin: -2px;
   }
 

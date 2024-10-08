@@ -16,6 +16,10 @@ import {
 import GridBox from "../layout/GridBox";
 import Modal from "../layout/Modal";
 
+const SelectSection = styled.section`
+  padding: 2rem;
+  color: #242a38;
+`;
 const Title = styled.h2`
   font-size: 2rem;
   margin-top: 90px;
@@ -40,7 +44,7 @@ const SelectTopic = () => {
 
   return (
     <>
-      <section>
+      <SelectSection>
         <Title>퀴즈 주제 선택</Title>
         <GridBox>
           <TopicCard card={htmlCSSCard} openModal={openModal} />
@@ -54,7 +58,7 @@ const SelectTopic = () => {
           <TopicCard card={architectureCard} openModal={openModal} />
         </GridBox>
         {isOpen ? <Modal card={selectedCard} closeModal={closeModal} /> : ""}
-      </section>
+      </SelectSection>
     </>
   );
 };

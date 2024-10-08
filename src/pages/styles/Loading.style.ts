@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: black;
   text-align: center;
+  height: 100vh; /* 뷰포트 높이 100% */
+  background-color: #f6f9ff;
 `;
 
 const Icons = styled.div`

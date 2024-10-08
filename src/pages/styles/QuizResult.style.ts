@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BackGround = styled.div`
-  background-color: #f5f5f5;
+  background-color: #f6f9ff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -45,16 +45,15 @@ const Box = styled.div`
   align-items: center;
 `;
 const Check = styled.div<{ $isRight?: boolean }>`
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ $isRight = true }) =>
-    $isRight ? "#32de84" : "#F44636"};
+  background-color: ${({ $isRight = true }) => ($isRight ? "#32de84" : "red")};
   border-radius: 50%;
   color: white;
-  font-size: x-large;
+  font-size: large;
 `;
 const Buttons = styled.div`
   display: flex;

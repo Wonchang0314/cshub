@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const BackGround = styled.div`
   background-color: #f5f5f5;
+  padding-top: 50px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@ const BackGround = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 700px) {
+    padding-top: 0;
     min-height: none;
     background-color: white;
     height: auto;
@@ -59,7 +61,7 @@ const InnerBar = styled.div<{ width: number }>`
   left: 0;
   width: ${({ width }) => width}%;
   height: 100%;
-  background-color: #ff4d4d;
+  background-color: #6f2dbd;
   display: flex;
   align-items: center;
   justify-content: center;

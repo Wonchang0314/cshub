@@ -7,8 +7,9 @@ const Card = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #ff4d4d;
   border-radius: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
   margin-bottom: 25px;
   text-align: start;
@@ -22,15 +23,16 @@ const Card = styled.div`
   }
 `;
 const DeleteButton = styled(motion.button)`
-  background-color: #ff4d4d;
+  background-color: #6f2dbd;
   color: white;
   border: none;
   border-radius: 10px;
   padding: 10px 15px;
   font-size: large;
   cursor: pointer;
+  flex-shrink: 0;
   &:hover {
-    background-color: #e04444;
+    background-color: #5a21a6;
   }
 
   @media (max-width: 700px) {
@@ -38,7 +40,7 @@ const DeleteButton = styled(motion.button)`
   }
 `;
 const Answer = styled.p`
-  color: #32de84;
+  color: #5305c7;
 `;
 
 const AnswerNoteCard = ({
@@ -60,7 +62,7 @@ const AnswerNoteCard = ({
               : "X"
             : correctAnswer}
         </Answer>
-        <p style={{ textDecoration: "line-through", color: "#FF0800" }}>
+        <p style={{ textDecoration: "line-through", color: "#ffcd05" }}>
           {userAnswer}
         </p>
         <p>해설: {commentary}</p>

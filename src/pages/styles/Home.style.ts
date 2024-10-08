@@ -1,111 +1,127 @@
 import styled from "styled-components";
 
 const Header = styled.header`
-  width: 95%;
+  width: 100%;
   margin: auto;
-  background-color: #ff5733;
-  padding: 1rem;
-  padding-bottom: 3rem;
-  text-align: center;
-  border-radius: 1rem
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-bottom: 2px solid #eaeaea;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 1280px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   @media (max-width: 700px) {
-    width: 90%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 `;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+
+    @media (max-width: 700px) {
+      width: 40px;
+    }
+  }
+
+  span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+
+    @media (max-width: 700px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  span strong {
+    color: #ffcc00;
+  }
+`;
+
 const Introduction = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   margin: auto;
+  padding: 4rem 2rem;
   text-align: center;
-
   @media (max-width: 1280px) {
     width: 80%;
   }
   @media (max-width: 700px) {
-    width: 100%;
+    width: 80%;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
   }
 `;
-const Example = styled.div`
-  width: 90%;
-  margin: auto;
-  border-radius: 15px;
-  padding: 1rem 0 2rem 0;
-  background-color: whitesmoke;
-  color: black;
-  margin-top: 3rem;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 
-  @media (max-width: 700px) {
-    display: none;
-  }
-`;
 const Title = styled.h1`
-  font-size: 4rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #6f2dbd;
+
+  span {
+    color: #ffcc00;
+  }
 
   @media (max-width: 1280px) {
-    font-size: 40px;
+    font-size: 2.25rem;
   }
   @media (max-width: 700px) {
-    font-size: 32px;
+    font-size: 1.75rem;
   }
 `;
+
 const SubTitle = styled.p`
+  font-size: 1.25rem;
   line-height: 2rem;
-  text-align: center;
+  color: #333;
   margin-bottom: 2rem;
 
   @media (max-width: 1280px) {
-    font-size: 18px;
+    font-size: 1rem;
   }
   @media (max-width: 700px) {
-    line-height: 24px;
-    font-size: 14px;
+    font-size: 0.9rem;
   }
-`;
-const QuestionCard = styled.div`
-  width: 85%;
-  margin: auto;
-  disply: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
-const Question = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  @media (max-width: 700px) {
-    font-size: 20px;
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center; 
+  margin-top: 1.5rem;
   }
-  @media (max-width: 370px) {
-    font-size: medium;
-  }
-`;
-const Options = styled.ul`
-  margin: 0;
-  padding: 2rem;
-  @media (max-width: 700px) {
-    padding: 0;
-  }
-`;
-const Feature = styled.section`
-  color: black;
-  text-align: center;
-  margin-top: 50px;
 `;
 
+const Instruction = styled.section`
+  background-color: white;
+  padding-top: 50px;
+`;
 export {
   Header,
+  Logo,
   Introduction,
-  Example,
   Title,
   SubTitle,
-  QuestionCard,
-  Question,
-  Options,
-  Feature,
+  ButtonContainer,
+  Instruction,
 };

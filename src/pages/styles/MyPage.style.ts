@@ -3,7 +3,7 @@ import styled from "styled-components";
 const AnswerNote = styled.section`
   width: 60%;
   margin: auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
   color: black;
   background-color: white;
   text-align: center;
@@ -40,9 +40,13 @@ const HistoryElement = styled.div`
   gap: 25px;
   align-items: center;
   border-radius: 10px;
-  font-size: large;
+  font-size: x-large;
   background-color: white;
   padding: 2rem;
+
+  @media (max-width: 700px) {
+    font-size: large;
+  }
 `;
 const Icon = styled.img`
   width: 40px;
