@@ -10,4 +10,8 @@ export default defineConfig({
       external: ["framer-motion", "styled-components"],
     },
   },
+  define: {
+    "global.React": "React",
+    "global.ReactDOM": "ReactDOM",
+  },
 });
