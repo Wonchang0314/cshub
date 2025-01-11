@@ -13,5 +13,7 @@ export default defineConfig({
   define: {
     "global.React": "React",
     "global.ReactDOM": "ReactDOM",
+    "global.FramerMotion": "window.FramerMotion",
+    "global.styled": "window.styled",
   },
 });
