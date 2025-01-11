@@ -47,12 +47,12 @@ const SelectTopic = () => {
       <SelectSection>
         <Title>퀴즈 주제 선택</Title>
         <GridBox>
-          <TopicCard card={htmlCSSCard} openModal={openModal} />
-          <TopicCard card={javascriptCard} openModal={openModal} />
-          <TopicCard card={reactCard} openModal={openModal} />
           <TopicCard card={netWorkCard} openModal={openModal} />
           <TopicCard card={osCard} openModal={openModal} />
           <TopicCard card={dataStructureCard} openModal={openModal} />
+          <TopicCard card={htmlCSSCard} openModal={openModal} />
+          <TopicCard card={javascriptCard} openModal={openModal} />
+          <TopicCard card={reactCard} openModal={openModal} />
           <TopicCard card={cloudAndDeployCard} openModal={openModal} />
           <TopicCard card={securityCard} openModal={openModal} />
           <TopicCard card={architectureCard} openModal={openModal} />

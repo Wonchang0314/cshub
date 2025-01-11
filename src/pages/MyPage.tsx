@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { IncorrectAnswer } from "../types/data";
 import {
   AnswerNote,
@@ -10,12 +11,9 @@ import {
 import solvedIcon from "../assets/solvedIcon.svg";
 import checkIcon from "../assets/checkIcon.svg";
 import AnswerNoteCard from "../components/AnswerNoteCard";
-import { useState } from "react";
 import Button from "../components/Button";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-import html2pdf from "html2pdf.js";
 
+// 동적 임포트
 const MyPage = () => {
   const solvedQuiz: number = localStorage.getItem("solvedQuiz")
     ? parseInt(localStorage.getItem("solvedQuiz")!)
@@ -28,6 +26,14 @@ const MyPage = () => {
       ? JSON.parse(localStorage.getItem("incorrectAnswers")!)
       : []
   );
+  const [html2pdf, setHtml2Pdf] = useState<any>(null);
+
+  // html2pdf.js를 동적 임포트
+  useEffect(() => {
+    import("html2pdf.js").then((module) => {
+      setHtml2Pdf(module);
+    });
+  }, []);
 
   const handleDelete = (index: number) => {
     const updatedAnswers = incorrectAnswers.filter((_, i) => i !== index);
@@ -36,10 +42,11 @@ const MyPage = () => {
   };
 
   const handleExportPDF = () => {
+    if (!html2pdf) return; // html2pdf.js가 로드되지 않았으면 함수 종료
+
     const element = document.getElementById("answer-note-content");
     const buttons = document.querySelectorAll<HTMLButtonElement>(".no-print");
     buttons.forEach((button) => (button.style.display = "none"));
-    console.log(buttons);
 
     const opt = {
       margin: 0.5,
@@ -54,7 +61,6 @@ const MyPage = () => {
       .from(element)
       .save()
       .then(() => {
-        // PDF가 생성된 후 버튼을 다시 표시
         buttons.forEach((button) => (button.style.display = ""));
       });
   };

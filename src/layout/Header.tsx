@@ -22,11 +22,12 @@ const Logo = styled.div`
 
   img {
     width: 50px;
-    height: auto;
+    height: 50px;
     margin-right: 1rem;
 
     @media (max-width: 700px) {
       width: 40px;
+      height: 40px;
     }
   }
 

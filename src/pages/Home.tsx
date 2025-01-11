@@ -13,6 +13,7 @@ import cursorIcon from "../assets/cursorIcon.svg";
 import podiumIcon from "../assets/podiumIcon.svg";
 import target3D from "../assets/target3D.svg";
 import styled from "styled-components";
+import { useCallback } from "react";
 const Main = styled.div`
   margin-top: 80px;
 `;
@@ -24,9 +25,10 @@ const HowToPlay = styled.h2`
 `;
 const HomePage = () => {
   const navigate = useNavigate();
-  const handleClick = () => {
+
+  const handleClick = useCallback(() => {
     navigate("/selectTopic");
-  };
+  }, [navigate]);
 
   return (
     <Main>

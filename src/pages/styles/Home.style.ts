@@ -1,63 +1,20 @@
 import styled from "styled-components";
 
-const Header = styled.header`
-  width: 100%;
-  margin: auto;
-  padding: 1rem 0;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  border-bottom: 2px solid #eaeaea;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-  @media (max-width: 1280px) {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  @media (max-width: 700px) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
+const Main = styled.div`
+  margin-top: 80px;
 `;
 
-const Logo = styled.div`
-  display: flex;
-  align-items: center;
-
-  img {
-    width: 50px;
-    height: auto;
-    margin-right: 1rem;
-
-    @media (max-width: 700px) {
-      width: 40px;
-    }
-  }
-
-  span {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-
-    @media (max-width: 700px) {
-      font-size: 1.5rem;
-    }
-  }
-
-  span strong {
-    color: #ffcc00;
-  }
+const HowToPlay = styled.h2`
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: black;
 `;
 
 const Introduction = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   margin: auto;
   padding: 4rem 2rem;
@@ -86,6 +43,7 @@ const Title = styled.h1`
   @media (max-width: 1280px) {
     font-size: 2.25rem;
   }
+
   @media (max-width: 700px) {
     font-size: 1.75rem;
   }
@@ -100,6 +58,7 @@ const SubTitle = styled.p`
   @media (max-width: 1280px) {
     font-size: 1rem;
   }
+
   @media (max-width: 700px) {
     font-size: 0.9rem;
   }
@@ -107,18 +66,18 @@ const SubTitle = styled.p`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   margin-top: 1.5rem;
-  }
 `;
 
 const Instruction = styled.section`
   background-color: white;
   padding-top: 50px;
 `;
+
 export {
-  Header,
-  Logo,
+  Main,
+  HowToPlay,
   Introduction,
   Title,
   SubTitle,

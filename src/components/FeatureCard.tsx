@@ -10,7 +10,7 @@ const Card = styled.div`
 `;
 
 const CardImage = styled.img`
-  width: 45%;
+  width: 150px;
   padding: 1.5rem;
   object-fit: cover;
 `;

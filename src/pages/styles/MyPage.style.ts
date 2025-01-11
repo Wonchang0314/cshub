@@ -24,6 +24,7 @@ const Title = styled.h2`
   color: black;
   text-align: center;
 `;
+
 const History = styled.div`
   width: 70%;
   display: flex;
@@ -34,6 +35,7 @@ const History = styled.div`
     width: 100%;
   }
 `;
+
 const HistoryElement = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,20 +43,22 @@ const HistoryElement = styled.div`
   gap: 25px;
   align-items: center;
   border-radius: 10px;
-  font-size: x-large;
   background-color: white;
   padding: 2rem;
+  font-size: 1.25rem;
 
   @media (max-width: 700px) {
-    font-size: large;
+    font-size: 1rem;
   }
 `;
+
 const Icon = styled.img`
   width: 40px;
 `;
+
 const NoRecord = styled.p`
   margin-top: 100px;
-  font-size: 24px;
+  font-size: 1.5rem;
 `;
 
 export { AnswerNote, Title, History, HistoryElement, Icon, NoRecord };
