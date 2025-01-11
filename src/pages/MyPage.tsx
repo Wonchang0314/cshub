@@ -28,8 +28,8 @@ const MyPage = () => {
   );
   const [html2pdf, setHtml2Pdf] = useState<any>(null);
 
-  // html2pdf.js를 동적 임포트
   useEffect(() => {
+    // @ts-expect-error
     import("html2pdf.js").then((module) => {
       setHtml2Pdf(module);
     });
@@ -42,7 +42,7 @@ const MyPage = () => {
   };
 
   const handleExportPDF = () => {
-    if (!html2pdf) return; // html2pdf.js가 로드되지 않았으면 함수 종료
+    if (!html2pdf) return;
 
     const element = document.getElementById("answer-note-content");
     const buttons = document.querySelectorAll<HTMLButtonElement>(".no-print");
