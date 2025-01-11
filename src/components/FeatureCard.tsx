@@ -37,7 +37,7 @@ interface FeatureCardProps {
 const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
     <Card>
-      <CardImage src={icon} alt="feature1" />
+      <CardImage width={150} height={150} src={icon} alt="feature1" />
       <CardContent>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>

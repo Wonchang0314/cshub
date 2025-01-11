@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
     font-weight: 800;
     font-style: normal;
+    font-display: swap;
   }
   body {
     margin: 0;
